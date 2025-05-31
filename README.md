@@ -1,6 +1,7 @@
 <!-- github.com/oMgItSParadise -->
 # DOS/DDoS Detection Tool by Paradise
-
+# There could be problems in this code, i will be working to fix them.
+# Bu kodda sorunlar olabilir, bunları düzeltmek için çalışacağım.
 ---
 
 ## ENGLISH
