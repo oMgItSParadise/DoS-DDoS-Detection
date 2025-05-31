@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOS/DDOS Detection Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>DOS/DDOS Detection Dashboard</h1>
+    <table id="statsTable">
+        <thead>
+            <tr>
+                <th>Source IP</th>
+                <th>Packet Count (last 10 seconds)</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchStats() {
+            const response = await fetch('/stats');
+            const data = await response.json();
+            const tbody = document.querySelector('#statsTable tbody');
+            tbody.innerHTML = '';
+            for (const [ip, count] of Object.entries(data)) {
+                const row = document.createElement('tr');
+                const ipCell = document.createElement('td');
+                ipCell.textContent = ip;
+                const countCell = document.createElement('td');
+                countCell.textContent = count;
+                row.appendChild(ipCell);
+                row.appendChild(countCell);
+                tbody.appendChild(row);
+            }
+        }
+
+        setInterval(fetchStats, 5000);
+        fetchStats();
+    </script>
+</body>
+</html>
+<!-- github.com/oMgItSParadise -->

@@ -1,0 +1,5 @@
+# github.com/oMgItSParadise
+scapy
+numpy
+flask
+# pcapy  # Optional: for advanced packet capture support on Linux
